@@ -1,0 +1,53 @@
+<html>
+<header>
+  <app-navbar></app-navbar>
+</header>
+
+  <body>
+    <h1 class="text-center mt-5">Create new tour</h1>
+
+    <div class="container w-25 mt-5">
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="departureFromInput" class="form-label">Departure from</label>
+          <input type="text"
+                 class="form-control"
+                 id="departureFromInput"
+                 placeholder="Departure from"
+                 [(ngModel)] = "tour.departureFrom"
+                 [ngModelOptions]="{standalone: true}">
+        </div>
+
+        <div class="mb-3">
+          <label for="destinationInput" class="form-label">Destination</label>
+          <input type="text"
+                 class="form-control"
+                 id="destinationInput"
+                 placeholder="Destination"
+                 [(ngModel)] = "tour.destination"
+                 [ngModelOptions]="{standalone: true}">
+        </div>
+
+        <div class="mb-3">
+          <label for="departureTimeInput" class="form-label">Departure time</label>
+          <input type="datetime-local"
+                 class="form-control"
+                 id="departureTimeInput"
+                 [(ngModel)] = "tour.departureTime"
+                 [ngModelOptions]="{standalone: true}">
+        </div>
+
+        <div class="mb-3">
+          <label for="arrivalTimeInput" class="form-label">Arrival time</label>
+          <input type="datetime-local"
+                 class="form-control"
+                 id="arrivalTimeInput"
+                 [(ngModel)] = "tour.arrivalTime"
+                 [ngModelOptions]="{standalone: true}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

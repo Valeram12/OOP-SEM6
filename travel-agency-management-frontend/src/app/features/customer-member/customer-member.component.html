@@ -1,0 +1,64 @@
+<html>
+
+  <header>
+    <app-navbar></app-navbar>
+  </header>
+
+  <body>
+    <h1 class="text-center mt-5">customer member: {{customerMember.id}}</h1>
+
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <dl>
+            <dt>Id:</dt>
+            <dd>{{customerMember.id}}</dd>
+
+            <dt>Name:</dt>
+            <dd>{{customerMember.name}}</dd>
+
+            <dt>Surname:</dt>
+            <dd>{{customerMember.surname}}</dd>
+
+            <dt>Position:</dt>
+            <dd>{{customerMember.position}}</dd>
+          </dl>
+        </div>
+
+        <div class="btn-primary col d-flex flex-column justify-content-center text-center">
+          <div class="p-1">
+            <button class="w-25 btn btn-primary" (click)="routeToEditForm(customerMember.id)">Edit</button>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="text-center m-3">tours</h1>
+
+      <div class="row justify-content-center">
+        <table class="table table-hover table-info table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Id</th>
+              <th>Departure from</th>
+              <th>Destination</th>
+              <th>Departure time</th>
+              <th>Arrival time</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let tour of customerMember.flights">
+              <td>{{tour.id }}</td>
+              <td>{{tour.departureFrom}}</td>
+              <td>{{tour.destination}}</td>
+              <td>{{tour.departureTime | date:'yyyy-MM-dd HH:mm'}}</td>
+              <td>{{tour.arrivalTime | date:'yyyy-MM-dd HH:mm'}}</td>
+              <td><button class="btn btn-danger" (click)="deleteFlightFromCrewMember(tour.id)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

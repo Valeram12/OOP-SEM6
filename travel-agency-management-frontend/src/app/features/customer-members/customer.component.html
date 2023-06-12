@@ -1,0 +1,42 @@
+<html>
+  <header>
+    <app-navbar></app-navbar>
+  </header>
+
+  <body>
+    <h1 class="text-center mt-5">customer members</h1>
+
+    <div class="container">
+      <div class="row w-25 pb-1">
+        <button class="btn btn-success" (click)="showNewcustomerMemberForm()">Create member</button>
+      </div>
+
+      <div class="row justify-content-center">
+        <table class="table table-hover table-info table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th class="text-light">Id</th>
+              <th class="text-light">Name</th>
+              <th class="text-light">Surname</th>
+              <th class="text-light">Position</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let customerMember of members">
+              <td>{{customerMember.id}}</td>
+              <td>{{customerMember.name}}</td>
+              <td>{{customerMember.surname}}</td>
+              <td>{{customerMember.position}}</td>
+              <td>
+                <button class="btn btn-primary" (click)="getcustomerMemberById(customerMember.id)">Info</button>
+                <button class="btn btn-danger mx-1" (click)="deletecustomerMember(customerMember.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<header>
+  <app-navbar></app-navbar>
+</header>
+
+  <body>
+    <h1 class="text-center mt-5">Add tour to customer member</h1>
+
+    <div class="container w-25 mt-5">
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="crewMemberIdInput" class="form-label">customer member id</label>
+          <input type="number"
+                 class="form-control"
+                 id="crewMemberIdInput"
+                 placeholder="0"
+                 [(ngModel)] = "relation.customerMemberId"
+                 [ngModelOptions]="{standalone: true}">
+        </div>
+
+        <div class="mb-3">
+          <label for="flightIdInput" class="form-label">tour id</label>
+          <input type="number"
+                 class="form-control"
+                 id="flightIdInput"
+                 placeholder="0"
+                 [(ngModel)] = "relation.tourId"
+                 [ngModelOptions]="{standalone: true}">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

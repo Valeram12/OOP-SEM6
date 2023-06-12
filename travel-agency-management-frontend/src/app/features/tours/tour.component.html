@@ -1,0 +1,44 @@
+<html>
+<header>
+  <app-navbar></app-navbar>
+</header>
+
+<body>
+  <h1 class="text-center mt-5">tours</h1>
+
+  <div class="container">
+    <div class="row w-25 pb-1">
+      <button class="btn btn-success" (click)="showNewtourForm()">Create tour</button>
+    </div>
+
+    <div class="row justify-content-center">
+      <table class="table table-hover table-info table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th class="text-light">Id</th>
+            <th class="text-light">Departure from</th>
+            <th class="text-light">Destination</th>
+            <th class="text-light">Departure time</th>
+            <th class="text-light">Arrival time</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let tour of tours">
+            <td>{{tour.id}}</td>
+            <td>{{tour.departureFrom}}</td>
+            <td>{{tour.destination}}</td>
+            <td>{{tour.departureTime | date:'yyyy-MM-dd HH:mm'}}</td>
+            <td>{{tour.arrivalTime | date:'yyyy-MM-dd HH:mm'}}</td>
+            <td>
+              <button class="btn btn-primary" (click)="gettourById(tour.id)">Info</button>
+              <button class="btn btn-danger mx-1" (click)="deleteFlight(tour.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

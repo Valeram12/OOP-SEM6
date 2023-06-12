@@ -1,0 +1,42 @@
+<html>
+  <header>
+    <app-navbar></app-navbar>
+  </header>
+
+  <body>
+    <h1 class="text-center mt-5">Create new customer member</h1>
+
+    <div class="container w-25 mt-5">
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="nameInput" class="form-label">Name</label>
+          <input type="text"
+                 class="form-control"
+                 id="nameInput"
+                 placeholder="Name"
+                 [(ngModel)] = "customerMember.name"
+                 [ngModelOptions]="{standalone: true}">
+        </div>
+
+        <div class="mb-3">
+          <label for="surnameInput" class="form-label">Surname</label>
+          <input type="text"
+                 class="form-control"
+                 id="surnameInput"
+                 placeholder="Surname"
+                 [(ngModel)] = "customerMember.surname"
+                 [ngModelOptions]="{standalone: true}">
+        </div>
+
+        <label for="positionInput" class="form-label">Position</label>
+        <select class="form-select mb-3" id="positionInput"
+                [(ngModel)] = "customerMember.position"
+                [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let position of positionValues" [ngValue] = "position">{{position}}</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
